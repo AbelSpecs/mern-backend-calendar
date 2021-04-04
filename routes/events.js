@@ -29,8 +29,8 @@ router.post('/',
 router.put('/:id', 
             [ 
                 check('title', 'el titulo es obligatorio').not().isEmpty(),
-                check('start', 'la fecha inicial es obligatoria o debe ser una fecha').isDate(),
-                check('end', 'la fecha final es obligatoria o debe ser una fecha').isDate(),  
+                check('start', 'la fecha inicial es obligatoria o debe ser una fecha').custom(isDate),
+                check('end', 'la fecha final es obligatoria o debe ser una fecha').custom(isDate),  
                 validarCampos
             ],
             actualizarEvento); 
